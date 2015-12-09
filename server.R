@@ -1,0 +1,10 @@
+shinyServer(function(input,output){
+  tot1<<-reactive({(as.numeric(input$id1)*10)+as.numeric(input$id2)+as.numeric(input$id3)})
+  output$tot1<-renderText({print(tot1())})
+  tot2<<-reactive({as.numeric(input$num1)+(as.numeric(input$num2)*5)+(as.numeric(input$num3)*10)+as.numeric(input$num4)*15+as.numeric(input$id4)+as.numeric(input$id5)*20+as.numeric(input$id6)*10})
+  output$tot2<-renderText({tot2()})
+  tot3<<-reactive({as.numeric(input$id7)+as.numeric(input$id8)})
+  output$tot3<-renderText({tot3()})
+  tot4<<-reactive({as.numeric(tot1())+as.numeric(tot2())+as.numeric(tot3())})
+  output$tot4<-renderText({tot4()})
+})
